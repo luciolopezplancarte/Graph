@@ -1,7 +1,7 @@
 """
 Lucio Plancarte
 """
-
+import os
 
 class Graph:
     
@@ -17,6 +17,9 @@ class Graph:
         Parameters:
             path: the path for a text file containing nodes
         """
+        self._graph = {}
+        self._file_path = path
+        print("Initializing a Graph")
 
     def read_graph_from_file(self):
         """
@@ -30,15 +33,54 @@ class Graph:
         Example:
         Having, file_path='example.txt'
         graph = read_graph_from_file()
-
+        
         The representation of the graph should be an adjacency list as:
         {1: {2,3}, 2: {1,3}, 3: {1,2},...}
         """
+        
+        try:
+            #opening the file
+            if os.path.exists(self._file_path) and os.path.isfile(self._file_path):
+                print("File Opened")
+                with  open(self._file_path,"r") as file:
+                    for line in file:
+                        line = line.strip()
+                        edge = line.split(",")
+                        #print(f"x:{edge[0]} y:{edge[1]}")
+                        if edge[0] not in self._graph:
+                            self._graph[edge[0]] =[edge[1]]
+                        else:
+                            if edge[1] not in self._graph[edge[0]]:
+                                self._graph[edge[0]].append(edge[1])
+
+                        if edge[1] not in self._graph:
+                            self._graph[edge[1]] = [edge[0]]
+                        else:
+                            if edge[0] not in self._graph[edge[1]]:
+                                self._graph[edge[1]].append(edge[0])
+                
+                print("File Read")
+            else:
+                raise FileNotFoundError
+
+        except FileNotFoundError:
+            print("File Not Found")
+
+        except Exception:
+            print("An Error has occured.")
+
+        finally:
+            print("File Closed")
+            file.close()
+
+
 
     def __str__(self):
         """
         Returns the content of the graph dictionary
         """
+        print(self._graph)
+        return ""
 
     def dfs(self,start,target_node):
         """
