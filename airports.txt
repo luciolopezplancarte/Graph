@@ -1,0 +1,77 @@
+New York,London
+New York,Paris
+New York,Tokyo
+New York,Sydney
+London,Paris
+London,Rome
+London,Berlin
+Paris,Beijing
+Paris,Cairo
+Tokyo,Rio
+Tokyo,Moscow
+Sydney,Dubai
+Sydney,Toronto
+Rome,Mumbai
+Rome,Mexico City
+Berlin,Seoul
+Berlin,Cape Town
+Beijing,Buenos Aires
+Beijing,Madrid
+Cairo,Istanbul
+Cairo,Bangkok
+Rio,Amsterdam
+Rio,Vienna
+Moscow,Singapore
+Moscow,Chicago
+Dubai,Dublin
+Dubai,Lisbon
+Toronto,Brussels
+Toronto,Athens
+Mumbai,Stockholm
+Mumbai,Oslo
+Mexico City,Helsinki
+Mexico City,Copenhagen
+Seoul,Warsaw
+Seoul,Budapest
+Cape Town,Prague
+Cape Town,Zurich
+Buenos Aires,Geneva
+Buenos Aires,Edinburgh
+Madrid,Reykjavik
+Madrid,Vancouver
+Istanbul,Montreal
+Istanbul,Boston
+Bangkok,San Francisco
+Bangkok,Seattle
+Amsterdam,Miami
+Amsterdam,Denver
+Vienna,Dallas
+Vienna,Houston
+Singapore,Phoenix
+Chicago,New York
+Dublin,London
+Lisbon,Paris
+Brussels,Tokyo
+Athens,Sydney
+Stockholm,Rome
+Oslo,Berlin
+Helsinki,Beijing
+Copenhagen,Cairo
+Warsaw,Rio
+Budapest,Moscow
+Prague,Dubai
+Zurich,Toronto
+Geneva,Mumbai
+Edinburgh,Mexico City
+Reykjavik,Seoul
+Vancouver,Cape Town
+Montreal,Buenos Aires
+Boston,Madrid
+San Francisco,Istanbul
+Seattle,Bangkok
+Miami,Amsterdam
+Denver,Vienna
+Dallas,Singapore
+Houston,Chicago
+Phoenix,Dublin
+Canberra,Wellington
