@@ -115,6 +115,26 @@ class Graph:
         result = dfs(start_node, target_node)
         In this examplee, result is True
         """
+        stack = []
+        seen = set()
+                
+        stack.append(start)
+        
+        while len(stack):
+            curr = stack.pop()
+            connections = self.get_connections(curr)
+            for node in connections:
+                    if node == target_node:
+                        return True
+                    else:
+                        if node not in seen:
+                            seen.add(node)
+                            stack.append(node)
+                        
+                        
+
+
+
 
     def search(self, start_node, node_to_search):
         """
@@ -144,6 +164,17 @@ class Graph:
         and the function returns False.
         """
 
+        try:
+            start = self._graph[start_node]
+        except KeyError:
+            print(f"Start node '{start_node}' not valid")
+            return False
+        else:
+            result = self.dfs(start_node, node_to_search)
+            if result is None:
+                return False
+            return result
+
     def highest_degree(self):
         """
         Returns a LIST containing the node(s) with the highest degree.
@@ -162,10 +193,27 @@ class Graph:
         
         It returns ["2"]
         """
+        high_stack = []
+        max_edges = 0
+        for node in self._graph:
+            num_edges = len(self.get_connections(node))
+            if num_edges >= max_edges:
+                if num_edges > max_edges and len(high_stack):
+                    high_stack.pop()
+              
+                high_stack.append(node)
+                max_edges = num_edges
+
+        return high_stack
 
     def get_connections(self,node):
         """
         Returns a Python LIST containing the nodes connected to a given node
         If the node has no connections, it returns None
         """
+        connections = self._graph[node]
+        if len(connections):
+            return connections
+        
+        return None
 
