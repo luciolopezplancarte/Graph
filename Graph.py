@@ -41,12 +41,11 @@ class Graph:
         try:
             #opening the file
             if os.path.exists(self._file_path) and os.path.isfile(self._file_path):
-                print("File Opened")
+                #print("File Opened")
                 with  open(self._file_path,"r") as file:
-                    for line in file:
-                        line = line.strip()
-                        edge = line.split(",")
-                        #print(f"x:{edge[0]} y:{edge[1]}")
+                    for edge in file:
+                        edge = edge.strip().split(",")
+                        
                         if edge[0] not in self._graph:
                             self._graph[edge[0]] =[edge[1]]
                         else:
@@ -59,28 +58,26 @@ class Graph:
                             if edge[0] not in self._graph[edge[1]]:
                                 self._graph[edge[1]].append(edge[0])
                 
-                print("File Read")
+                #print("File Read")
+                file.close()
+                #print("File Closed")
             else:
-                raise FileNotFoundError
+                raise FileNotFoundError(str(self._file_path))
 
-        except FileNotFoundError:
-            print("File Not Found")
+        except FileNotFoundError as e:
+            print(f"*Error* File '{str(e)}' not found.")
+            return 1
 
-        except Exception:
-            print("An Error has occured.")
-
-        finally:
-            print("File Closed")
-            file.close()
-
+        except Exception as e:
+            print(f"An Error has occured: '{str(e)}'")
+            return 1
 
 
     def __str__(self):
         """
         Returns the content of the graph dictionary
         """
-        print(self._graph)
-        return ""
+        return str(self._graph)
 
     def dfs(self,start,target_node):
         """
